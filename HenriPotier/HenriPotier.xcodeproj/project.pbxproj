@@ -22,6 +22,7 @@
 		0D7DF91425B4DEB70080872C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF91325B4DEB70080872C /* Book.swift */; };
 		0D7DF91D25B4DEDE0080872C /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF91C25B4DEDE0080872C /* BookCell.swift */; };
 		0D7DF92625B4E4560080872C /* ValueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF92525B4E4560080872C /* ValueButton.swift */; };
+		0D7DF93125B4EC240080872C /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF93025B4EC240080872C /* BookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		0D7DF91325B4DEB70080872C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0D7DF91C25B4DEDE0080872C /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		0D7DF92525B4E4560080872C /* ValueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueButton.swift; sourceTree = "<group>"; };
+		0D7DF93025B4EC240080872C /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				0D7DF91225B4DEA70080872C /* Controllers */,
 				0D7DF91825B4DEC20080872C /* Models */,
 				0D7DF92125B4DEE70080872C /* Views */,
+				0D7DF93025B4EC240080872C /* BookViewController.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				0D7DF91425B4DEB70080872C /* Book.swift in Sources */,
 				0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */,
 				0D7DF8B225B4C21A0080872C /* SceneDelegate.swift in Sources */,
+				0D7DF93125B4EC240080872C /* BookViewController.swift in Sources */,
 				0D7DF90825B4CA240080872C /* Extensions.swift in Sources */,
 				0D7DF92625B4E4560080872C /* ValueButton.swift in Sources */,
 			);
@@ -497,7 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 85TLDU6AKC;
+				DEVELOPMENT_TEAM = TG34ANFDUK;
 				INFOPLIST_FILE = "HenriPotier/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

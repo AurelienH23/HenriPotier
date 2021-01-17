@@ -78,6 +78,12 @@ extension LibraryViewController: UICollectionViewDataSource {
 
 extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedBook = books[indexPath.item]
+        let bookController = BookViewController(for: selectedBook)
+        present(bookController, animated: true, completion: nil)
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 2 * .extraLargeSpace, height: 180)
     }
