@@ -38,4 +38,12 @@ class MainTabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = UIColor(named: "textColor")
     }
 
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let idx = tabBar.items?.firstIndex(of: item), tabBar.subviews.count > idx + 1,
+              let imageView = tabBar.subviews[idx + 1].subviews.first as? UIImageView else {
+            return
+        }
+        imageView.tabBarItemBounce()
+    }
+
 }

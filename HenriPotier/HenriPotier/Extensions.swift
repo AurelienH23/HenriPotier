@@ -16,3 +16,29 @@ extension UIColor {
     static let hpGreen = UIColor.rgb(red: 11, green: 167, blue: 107)
 
 }
+
+extension UIView {
+
+    func bounce() {
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.duration = 0.1
+        animation.repeatCount = 1
+        animation.autoreverses = true
+        animation.fromValue = 1
+        animation.toValue = 0.9
+
+        layer.add(animation, forKey: "transform.scale")
+    }
+
+    func tabBarItemBounce() {
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.duration = 0.1
+        animation.repeatCount = 1
+        animation.autoreverses = true
+        animation.fromValue = 1
+        animation.toValue = 1.2
+
+        layer.add(animation, forKey: "transform.scale")
+    }
+
+}
