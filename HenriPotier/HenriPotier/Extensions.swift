@@ -96,6 +96,18 @@ extension UIView {
 // MARK: CGFloat
 extension CGFloat {
 
+    static var topPadding: CGFloat {
+        return UIApplication.shared.statusBarFrame.height
+    }
+
+    static var bottomPadding: CGFloat {
+        var bottomPadding: CGFloat = 0
+        if self.topPadding > 20 {
+            bottomPadding = 20
+        }
+        return bottomPadding
+    }
+
     // Corner radius
     /** 4 */
     static let smallCornerRadius = CGFloat(integerLiteral: 4)

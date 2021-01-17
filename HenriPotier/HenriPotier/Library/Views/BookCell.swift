@@ -42,12 +42,7 @@ class BookCell: UICollectionViewCell {
         return iv
     }()
 
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.bookTitle()
-        label.numberOfLines = 0
-        return label
-    }()
+    let titleLabel = TitleLabel("")
 
     let overviewLabel: UILabel = {
         let label = UILabel()
@@ -67,16 +62,7 @@ class BookCell: UICollectionViewCell {
         return view
     }()
 
-    let priceLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.textAlignment = .center
-        label.backgroundColor = .hpGreen
-        label.layer.cornerRadius = .largeCornerRadius
-        label.clipsToBounds = true
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        return label
-    }()
+    let priceLabel = PriceLabel("")
 
     let minusButton = ValueButton("-")
     let valueLabel: UILabel = {
@@ -101,11 +87,7 @@ class BookCell: UICollectionViewCell {
         return btn
     }()
 
-    let divider: UIView = {
-        let view = UIView()
-        view.backgroundColor = .hpLightGray
-        return view
-    }()
+    let divider = Divider()
 
     // MARK: Lifecycle
 
@@ -135,7 +117,7 @@ class BookCell: UICollectionViewCell {
         titleLabel.anchor(top: topAnchor, left: cover.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         overviewLabel.anchor(top: titleLabel.bottomAnchor, left: cover.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
         hideView.anchor(top: nil, left: overviewLabel.leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 60)
-        priceLabel.anchor(top: nil, left: cover.rightAnchor, bottom: cover.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: 0, width: .standardTouchSpace, height: .extraLargeSpace)
+        priceLabel.anchor(top: nil, left: cover.rightAnchor, bottom: cover.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: 0, width: 50, height: .extraLargeSpace)
         minusButton.anchor(top: priceLabel.topAnchor, left: priceLabel.rightAnchor, bottom: priceLabel.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: .smallSpace, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         valueLabel.anchor(top: minusButton.topAnchor, left: minusButton.rightAnchor, bottom: minusButton.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: .extraLargeSpace, height: 0)
         addButton.anchor(top: valueLabel.topAnchor, left: valueLabel.rightAnchor, bottom: valueLabel.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)

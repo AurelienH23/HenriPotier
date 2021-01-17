@@ -23,6 +23,9 @@
 		0D7DF91D25B4DEDE0080872C /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF91C25B4DEDE0080872C /* BookCell.swift */; };
 		0D7DF92625B4E4560080872C /* ValueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF92525B4E4560080872C /* ValueButton.swift */; };
 		0D7DF93125B4EC240080872C /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF93025B4EC240080872C /* BookViewController.swift */; };
+		0D7DF93625B4F01B0080872C /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF93525B4F01B0080872C /* TitleLabel.swift */; };
+		0D7DF93B25B4F3F30080872C /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF93A25B4F3F30080872C /* PriceLabel.swift */; };
+		0D7DF94025B4F4970080872C /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF93F25B4F4970080872C /* Divider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		0D7DF91C25B4DEDE0080872C /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		0D7DF92525B4E4560080872C /* ValueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueButton.swift; sourceTree = "<group>"; };
 		0D7DF93025B4EC240080872C /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		0D7DF93525B4F01B0080872C /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		0D7DF93A25B4F3F30080872C /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
+		0D7DF93F25B4F4970080872C /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,9 @@
 			children = (
 				0D7DF91C25B4DEDE0080872C /* BookCell.swift */,
 				0D7DF92525B4E4560080872C /* ValueButton.swift */,
+				0D7DF93525B4F01B0080872C /* TitleLabel.swift */,
+				0D7DF93A25B4F3F30080872C /* PriceLabel.swift */,
+				0D7DF93F25B4F4970080872C /* Divider.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +333,8 @@
 				0D7DF8BA25B4C21A0080872C /* HenriPotier.xcdatamodeld in Sources */,
 				0D7DF8FD25B4C8830080872C /* CartViewController.swift in Sources */,
 				0D7DF90D25B4D4210080872C /* Network.swift in Sources */,
+				0D7DF93625B4F01B0080872C /* TitleLabel.swift in Sources */,
+				0D7DF93B25B4F3F30080872C /* PriceLabel.swift in Sources */,
 				0D7DF8F325B4C6CE0080872C /* MainTabBarController.swift in Sources */,
 				0D7DF91D25B4DEDE0080872C /* BookCell.swift in Sources */,
 				0D7DF8B025B4C21A0080872C /* AppDelegate.swift in Sources */,
@@ -331,6 +342,7 @@
 				0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */,
 				0D7DF8B225B4C21A0080872C /* SceneDelegate.swift in Sources */,
 				0D7DF93125B4EC240080872C /* BookViewController.swift in Sources */,
+				0D7DF94025B4F4970080872C /* Divider.swift in Sources */,
 				0D7DF90825B4CA240080872C /* Extensions.swift in Sources */,
 				0D7DF92625B4E4560080872C /* ValueButton.swift in Sources */,
 			);
