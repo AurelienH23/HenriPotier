@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		0D7DF8B025B4C21A0080872C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8AF25B4C21A0080872C /* AppDelegate.swift */; };
 		0D7DF8B225B4C21A0080872C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8B125B4C21A0080872C /* SceneDelegate.swift */; };
-		0D7DF8B425B4C21A0080872C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8B325B4C21A0080872C /* ViewController.swift */; };
 		0D7DF8BA25B4C21A0080872C /* HenriPotier.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8B825B4C21A0080872C /* HenriPotier.xcdatamodeld */; };
 		0D7DF8BC25B4C21B0080872C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D7DF8BB25B4C21B0080872C /* Assets.xcassets */; };
 		0D7DF8BF25B4C21B0080872C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7DF8BD25B4C21B0080872C /* LaunchScreen.storyboard */; };
 		0D7DF8CA25B4C21B0080872C /* HenriPotierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8C925B4C21B0080872C /* HenriPotierTests.swift */; };
 		0D7DF8D525B4C21B0080872C /* HenriPotierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8D425B4C21B0080872C /* HenriPotierUITests.swift */; };
+		0D7DF8F325B4C6CE0080872C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */; };
+		0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8F725B4C8200080872C /* LibraryViewController.swift */; };
+		0D7DF8FD25B4C8830080872C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8FC25B4C8830080872C /* CartViewController.swift */; };
+		0D7DF90825B4CA240080872C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF90725B4CA240080872C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 		0D7DF8AC25B4C21A0080872C /* HenriPotier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenriPotier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7DF8AF25B4C21A0080872C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D7DF8B125B4C21A0080872C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0D7DF8B325B4C21A0080872C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0D7DF8B925B4C21A0080872C /* HenriPotier.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HenriPotier.xcdatamodel; sourceTree = "<group>"; };
 		0D7DF8BB25B4C21B0080872C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D7DF8BE25B4C21B0080872C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		0D7DF8D025B4C21B0080872C /* HenriPotierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HenriPotierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7DF8D425B4C21B0080872C /* HenriPotierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HenriPotierUITests.swift; sourceTree = "<group>"; };
 		0D7DF8D625B4C21B0080872C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0D7DF8F725B4C8200080872C /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		0D7DF8FC25B4C8830080872C /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		0D7DF90725B4CA240080872C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +107,11 @@
 			children = (
 				0D7DF8AF25B4C21A0080872C /* AppDelegate.swift */,
 				0D7DF8B125B4C21A0080872C /* SceneDelegate.swift */,
+				0D7DF90725B4CA240080872C /* Extensions.swift */,
 				0D7DF8F125B4C4890080872C /* Support Files */,
-				0D7DF8B325B4C21A0080872C /* ViewController.swift */,
+				0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */,
+				0D7DF8F725B4C8200080872C /* LibraryViewController.swift */,
+				0D7DF8FC25B4C8830080872C /* CartViewController.swift */,
 			);
 			path = HenriPotier;
 			sourceTree = "<group>";
@@ -265,10 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D7DF8B425B4C21A0080872C /* ViewController.swift in Sources */,
 				0D7DF8BA25B4C21A0080872C /* HenriPotier.xcdatamodeld in Sources */,
+				0D7DF8FD25B4C8830080872C /* CartViewController.swift in Sources */,
+				0D7DF8F325B4C6CE0080872C /* MainTabBarController.swift in Sources */,
 				0D7DF8B025B4C21A0080872C /* AppDelegate.swift in Sources */,
+				0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */,
 				0D7DF8B225B4C21A0080872C /* SceneDelegate.swift in Sources */,
+				0D7DF90825B4CA240080872C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +450,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85TLDU6AKC;
-				INFOPLIST_FILE = HenriPotier/Info.plist;
+				INFOPLIST_FILE = "HenriPotier/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +469,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 85TLDU6AKC;
-				INFOPLIST_FILE = HenriPotier/Info.plist;
+				INFOPLIST_FILE = "HenriPotier/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
