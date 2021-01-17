@@ -12,6 +12,13 @@ class LibraryViewController: UIViewController {
     // MARK: Properties
 
     let cellId = "cellId"
+    var books = [Book]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 
     // MARK: View elements
 
@@ -42,11 +49,10 @@ class LibraryViewController: UIViewController {
 
     private func fetchBooks() {
         Network.fetchBooks { (books) in
-            //
+            self.books = books
         } failure: {
             print("bad")
         }
-
     }
 
 }
@@ -55,11 +61,12 @@ class LibraryViewController: UIViewController {
 extension LibraryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return books.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BookCell
+        cell.book = books[indexPath.item]
         return cell
     }
 
