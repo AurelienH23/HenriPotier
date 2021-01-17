@@ -19,6 +19,8 @@
 		0D7DF8FD25B4C8830080872C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8FC25B4C8830080872C /* CartViewController.swift */; };
 		0D7DF90825B4CA240080872C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF90725B4CA240080872C /* Extensions.swift */; };
 		0D7DF90D25B4D4210080872C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF90C25B4D4210080872C /* Network.swift */; };
+		0D7DF91425B4DEB70080872C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF91325B4DEB70080872C /* Book.swift */; };
+		0D7DF91D25B4DEDE0080872C /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF91C25B4DEDE0080872C /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		0D7DF8FC25B4C8830080872C /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		0D7DF90725B4CA240080872C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0D7DF90C25B4D4210080872C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		0D7DF91325B4DEB70080872C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		0D7DF91C25B4DEDE0080872C /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +117,7 @@
 				0D7DF90C25B4D4210080872C /* Network.swift */,
 				0D7DF8F125B4C4890080872C /* Support Files */,
 				0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */,
-				0D7DF8F725B4C8200080872C /* LibraryViewController.swift */,
+				0D7DF91125B4DE990080872C /* Library */,
 				0D7DF8FC25B4C8830080872C /* CartViewController.swift */,
 			);
 			path = HenriPotier;
@@ -146,6 +150,40 @@
 				0D7DF8B825B4C21A0080872C /* HenriPotier.xcdatamodeld */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		0D7DF91125B4DE990080872C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				0D7DF91225B4DEA70080872C /* Controllers */,
+				0D7DF91825B4DEC20080872C /* Models */,
+				0D7DF92125B4DEE70080872C /* Views */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		0D7DF91225B4DEA70080872C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D7DF8F725B4C8200080872C /* LibraryViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0D7DF91825B4DEC20080872C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D7DF91325B4DEB70080872C /* Book.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0D7DF92125B4DEE70080872C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D7DF91C25B4DEDE0080872C /* BookCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +319,9 @@
 				0D7DF8FD25B4C8830080872C /* CartViewController.swift in Sources */,
 				0D7DF90D25B4D4210080872C /* Network.swift in Sources */,
 				0D7DF8F325B4C6CE0080872C /* MainTabBarController.swift in Sources */,
+				0D7DF91D25B4DEDE0080872C /* BookCell.swift in Sources */,
 				0D7DF8B025B4C21A0080872C /* AppDelegate.swift in Sources */,
+				0D7DF91425B4DEB70080872C /* Book.swift in Sources */,
 				0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */,
 				0D7DF8B225B4C21A0080872C /* SceneDelegate.swift in Sources */,
 				0D7DF90825B4CA240080872C /* Extensions.swift in Sources */,
