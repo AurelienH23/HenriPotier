@@ -123,12 +123,11 @@
 			children = (
 				0D7DF8AF25B4C21A0080872C /* AppDelegate.swift */,
 				0D7DF8B125B4C21A0080872C /* SceneDelegate.swift */,
-				0D7DF90725B4CA240080872C /* Extensions.swift */,
-				0D7DF90C25B4D4210080872C /* Network.swift */,
 				0D7DF8F125B4C4890080872C /* Support Files */,
-				0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */,
-				0D7DF91125B4DE990080872C /* Library */,
-				0D7DF8FC25B4C8830080872C /* CartViewController.swift */,
+				0D7DF94D25B4FA6D0080872C /* Utils */,
+				0D7DF91825B4DEC20080872C /* Models */,
+				0D7DF92125B4DEE70080872C /* Views */,
+				0D7DF91225B4DEA70080872C /* Controllers */,
 			);
 			path = HenriPotier;
 			sourceTree = "<group>";
@@ -162,21 +161,13 @@
 			path = "Support Files";
 			sourceTree = "<group>";
 		};
-		0D7DF91125B4DE990080872C /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				0D7DF91225B4DEA70080872C /* Controllers */,
-				0D7DF91825B4DEC20080872C /* Models */,
-				0D7DF92125B4DEE70080872C /* Views */,
-				0D7DF93025B4EC240080872C /* BookViewController.swift */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
 		0D7DF91225B4DEA70080872C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */,
 				0D7DF8F725B4C8200080872C /* LibraryViewController.swift */,
+				0D7DF93025B4EC240080872C /* BookViewController.swift */,
+				0D7DF8FC25B4C8830080872C /* CartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +190,15 @@
 				0D7DF93F25B4F4970080872C /* Divider.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0D7DF94D25B4FA6D0080872C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0D7DF90725B4CA240080872C /* Extensions.swift */,
+				0D7DF90C25B4D4210080872C /* Network.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
