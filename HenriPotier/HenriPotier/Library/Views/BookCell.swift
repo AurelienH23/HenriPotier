@@ -17,6 +17,13 @@ class BookCell: UICollectionViewCell {
             titleLabel.text = book.title
             overviewLabel.text = book.synopsis.first
             priceLabel.text = "\(book.price)€"
+            Network.fetchImage(at: book.cover) { (img) in
+                DispatchQueue.main.async {
+                    self.cover.image = img
+                }
+            } failure: {
+                print("no image found")
+            }
         }
     }
 

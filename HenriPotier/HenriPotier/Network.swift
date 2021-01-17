@@ -5,7 +5,7 @@
 //  Created by Aurélien Haie on 17/01/2021.
 //
 
-import Foundation
+import UIKit
 
 class Network: NSObject {
 
@@ -29,6 +29,27 @@ class Network: NSObject {
                 failure()
             }
         }.resume()
+    }
+
+    static var cacheImages = [String: UIImage]()
+
+    static func fetchImage(at urlString: String, success: @escaping (UIImage?) -> Void, failure: @escaping () -> Void) {
+        if let cachedImage = cacheImages[urlString] {
+            success(cachedImage)
+        } else {
+            guard let url = URL(string: urlString) else { return }
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+                if let err = err {
+                    print("Error fetching book cover:", err)
+                    failure()
+                    return
+                }
+                print("Succeeded fetching book cover")
+                guard let data = data else { return }
+                cacheImages[urlString] = UIImage(data: data)
+                success(UIImage(data: data))
+            }.resume()
+        }
     }
 
 }
