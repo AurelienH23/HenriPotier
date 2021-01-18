@@ -15,10 +15,10 @@ class PriceView: UIView {
 
     let costLabel = PricingLabel("Coût total de la commande :")
     let dots1 = PricingLabel("....................................")
-    let costValue = PricingValue("30€")
+    let costValue = PricingValue("-€")
     let offerLabel = PricingLabel("Offre commerciale :")
     let dots2 = PricingLabel("....................................")
-    let offerValue = PricingValue("-30€")
+    let offerValue = PricingValue("-€")
     let divider: UIView = {
         let view = UIView()
         view.backgroundColor = .hpGreen
@@ -31,7 +31,7 @@ class PriceView: UIView {
     }()
     let totalLabel = PricingLabel("Total à payer :")
     let dots3 = PricingLabel("....................................")
-    let totalValue = PricingValue("0€")
+    let totalValue = PricingValue("-€")
 
     // MARK: Lifecycle
 
@@ -63,6 +63,56 @@ class PriceView: UIView {
         totalLabel.anchor(top: wand.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: .smallSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
         dots3.anchor(top: totalValue.topAnchor, left: leftAnchor, bottom: totalValue.bottomAnchor, right: totalValue.leftAnchor, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: .smallSpace, paddingRight: .smallSpace, width: 0, height: 0)
         totalValue.anchor(top: totalLabel.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: .smallSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
+    }
+
+    internal func setTotalPrice(for books: [Book]) {
+        let cost = books.reduce(0, {$0 + $1.quantity! * $1.price})
+        costValue.text = "\(cost)€"
+        offerValue.text = "~"
+        totalValue.text = "~"
+
+        Network.fetchOffer(for: books) { (offers) in
+            var lowestPrice = CGFloat(cost)
+            var newPrice: CGFloat = 0
+            var promotion = ""
+            offers.offers.forEach { (offer) in
+                switch offer.type {
+                case "percentage":
+                    newPrice = CGFloat(cost) - CGFloat(cost) * CGFloat(offer.value) / 100.0
+                    if newPrice < lowestPrice {
+                        lowestPrice = newPrice
+                        promotion = "-\(offer.value)%"
+                    }
+                case "minus":
+                    newPrice = CGFloat(cost) - CGFloat(offer.value)
+                    if newPrice < lowestPrice {
+                        lowestPrice = newPrice
+                        promotion = "-\(offer.value)€"
+                    }
+                case "slice":
+                    if let sliceValue = offer.sliceValue {
+                        let minus = CGFloat(cost / sliceValue) * CGFloat(offer.value)
+                        newPrice = CGFloat(cost) - minus
+                        if newPrice < lowestPrice {
+                            lowestPrice = newPrice
+                            promotion = "-\(minus)€"
+                        }
+                    }
+                default:
+                    break
+                }
+            }
+
+            DispatchQueue.main.async {
+                self.offerValue.text = promotion
+                self.totalValue.text = "\(lowestPrice)€"
+            }
+        } failure: {
+            DispatchQueue.main.async {
+                self.offerValue.text = "erreur"
+                self.totalValue.text = "erreur"
+            }
+        }
     }
 
 }

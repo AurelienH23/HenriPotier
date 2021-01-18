@@ -55,6 +55,29 @@ class Network: NSObject {
         }
     }
 
+    static func fetchOffer(for books: [Book], success: @escaping (Offers) -> Void, failure: @escaping () -> Void) {
+        let chain = books.reduce("", {$0 + $1.isbn + ","})
+        let urlString = "https://henri-potier.techx.fr/books/\(chain.dropLast())/commercialOffers"
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+            if let err = err {
+                print("Error fetching offer:", err)
+                failure()
+                return
+            }
+            print("Succeeded fetching offer")
+            guard let data = data else { return }
+            
+            do {
+                let offers = try JSONDecoder().decode(Offers.self, from: data)
+                success(offers)
+            } catch {
+                print(error)
+                failure()
+            }
+        }.resume()
+    }
+
     // MARK: Local data
 
     static func prepareLocalData(with books: [Book]) {

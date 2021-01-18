@@ -16,6 +16,7 @@ class CartViewController: UIViewController {
             showAddedBooks()
             if books.reduce(0, {$0 + $1.quantity!}) > 0 {
                 setupViewsForBooksInCart()
+                calculateTotalCost()
             } else {
                 setupViewsForEmptyCart()
             }
@@ -156,5 +157,9 @@ class CartViewController: UIViewController {
             i += 1
         }
     }
-    
+
+    private func calculateTotalCost() {
+        priceView.setTotalPrice(for: books)
+    }
+
 }
