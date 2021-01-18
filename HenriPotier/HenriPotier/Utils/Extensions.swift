@@ -15,6 +15,7 @@ extension UIColor {
     }
 
     static let hpGreen = UIColor.rgb(red: 11, green: 167, blue: 107)
+    static let hpGreenBg = UIColor.rgb(red: 11, green: 167, blue: 107, alpha: 0.1)
     static let hpLightGray = UIColor.rgb(red: 240, green: 240, blue: 240)
     static let hpGray = UIColor.rgb(red: 200, green: 200, blue: 200)
 
