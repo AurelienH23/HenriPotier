@@ -13,4 +13,5 @@ struct Book: Decodable {
     let price: Int
     let cover: String
     let synopsis: [String]
+    let quantity: Int?
 }

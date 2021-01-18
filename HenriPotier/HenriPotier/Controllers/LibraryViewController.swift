@@ -50,6 +50,7 @@ class LibraryViewController: UIViewController {
     private func fetchBooks() {
         Network.fetchBooks { (books) in
             self.books = books
+            Network.prepareLocalData(with: books)
         } failure: {
             print("bad")
         }

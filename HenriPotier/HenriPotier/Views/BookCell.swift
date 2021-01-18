@@ -17,7 +17,7 @@ class BookCell: UICollectionViewCell {
             titleLabel.text = book.title
             overviewLabel.text = book.synopsis.first
             priceLabel.text = "\(book.price)€"
-            valueLabel.text = "\(numberOfBooksInCart)"
+            syncQuantityWithLocalData()
             Network.fetchImage(at: book.cover) { (img) in
                 DispatchQueue.main.async {
                     self.cover.image = img
@@ -30,7 +30,6 @@ class BookCell: UICollectionViewCell {
     var numberOfBooksInCart = 0 {
         didSet {
             valueLabel.text = "\(numberOfBooksInCart)"
-            // TODO: Add book to local data cart
         }
     }
 
@@ -136,12 +135,21 @@ class BookCell: UICollectionViewCell {
         case minusButton:
             if numberOfBooksInCart > 0 {
                 numberOfBooksInCart -= 1
+                guard let book = book else { return }
+                Network.updateLocalCart(for: book, number: numberOfBooksInCart)
             }
         case addButton:
             numberOfBooksInCart += 1
+            guard let book = book else { return }
+            Network.updateLocalCart(for: book, number: numberOfBooksInCart)
         default:
             break
         }
+    }
+
+    private func syncQuantityWithLocalData() {
+        guard let book = book else { return }
+        numberOfBooksInCart = Network.getNumberOfItemsInCart(for: book)
     }
 
 }

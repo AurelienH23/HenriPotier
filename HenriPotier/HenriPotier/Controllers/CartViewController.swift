@@ -43,6 +43,11 @@ class CartViewController: UIViewController {
         setupViews()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(Network.getLocalCart())
+    }
+
     // MARK: Custom funcs
 
     private func setupViews() {
