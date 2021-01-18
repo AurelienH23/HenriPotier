@@ -141,9 +141,9 @@ class CartViewController: UIViewController {
         stack.axis = .vertical
 
         view.addSubview(scrollView)
-        scrollView.anchor(to: view)
+        scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: .topPadding, paddingLeft: 0, paddingBottom: .bottomPadding + 63, paddingRight: 0, width: 0, height: 0)
         scrollView.addSubviews(ticketView, ticketLabel, companyName, logo, vDivider, hDivider, stack, priceView)
-        ticketView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: priceView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: .topPadding + .extraLargeSpace, paddingLeft: .extraLargeSpace, paddingBottom: 0, paddingRight: .extraLargeSpace, width: view.frame.width - 2 * .extraLargeSpace, height: 0)
+        ticketView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: priceView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: .extraLargeSpace, paddingLeft: .extraLargeSpace, paddingBottom: 0, paddingRight: .extraLargeSpace, width: view.frame.width - 2 * .extraLargeSpace, height: 0)
         ticketLabel.anchor(top: ticketView.topAnchor, left: ticketView.leftAnchor, bottom: nil, right: vDivider.leftAnchor, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
         companyName.anchor(top: nil, left: ticketView.leftAnchor, bottom: hDivider.topAnchor, right: vDivider.leftAnchor, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: .smallSpace, paddingRight: .mediumSpace, width: 0, height: 0)
         logo.anchor(top: ticketView.topAnchor, left: nil, bottom: nil, right: ticketView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 76, height: 76)
@@ -153,7 +153,7 @@ class CartViewController: UIViewController {
         priceView.anchor(top: stack.bottomAnchor, left: ticketView.leftAnchor, bottom: ticketView.bottomAnchor, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 200)
 
         view.layoutIfNeeded()
-        scrollView.contentSize = CGSize(width: view.frame.width, height: ticketView.frame.height + .bottomPadding + 60 + .extraLargeSpace)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: ticketView.frame.height + 2 * .extraLargeSpace)
     }
 
 }
