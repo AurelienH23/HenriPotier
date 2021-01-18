@@ -79,7 +79,7 @@ class CartViewController: UIViewController {
         return label
     }()
 
-    let logo = UIImageView(image: nil)
+    let logo = UIImageView(image: UIImage(named: "logo"))
 
     let hDivider = Divider()
     let vDivider = Divider()
@@ -141,7 +141,7 @@ class CartViewController: UIViewController {
         vDivider.anchor(top: ticketView.topAnchor, left: nil, bottom: hDivider.topAnchor, right: logo.leftAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 1, height: 0)
         hDivider.anchor(top: logo.bottomAnchor, left: ticketView.leftAnchor, bottom: nil, right: ticketView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1)
         stack.anchor(top: hDivider.bottomAnchor, left: ticketView.leftAnchor, bottom: nil, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
-        priceView.anchor(top: stack.bottomAnchor, left: ticketView.leftAnchor, bottom: ticketView.bottomAnchor, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 200)
+        priceView.anchor(top: stack.bottomAnchor, left: ticketView.leftAnchor, bottom: ticketView.bottomAnchor, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 270)
 
         view.layoutIfNeeded()
         scrollView.contentSize = CGSize(width: view.frame.width, height: ticketView.frame.height + 2 * .extraLargeSpace)
