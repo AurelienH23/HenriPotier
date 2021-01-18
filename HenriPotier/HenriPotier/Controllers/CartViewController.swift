@@ -45,7 +45,12 @@ class CartViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(Network.getLocalCart())
+        let books = Network.getLocalCart()
+        if books.reduce(0, {$0 + $1.quantity!}) > 0 {
+            
+        } else {
+            
+        }
     }
 
     // MARK: Custom funcs

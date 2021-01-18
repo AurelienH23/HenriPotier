@@ -36,11 +36,16 @@ class LibraryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupObservers()
         setupViews()
         fetchBooks()
     }
 
     // MARK: Custom funcs
+
+    private func setupObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadAfterCartUpdated), name: .cartUpdated, object: nil)
+    }
 
     private func setupViews() {
         view.addSubview(collectionView)
@@ -54,6 +59,10 @@ class LibraryViewController: UIViewController {
         } failure: {
             print("bad")
         }
+    }
+
+    @objc private func reloadAfterCartUpdated() {
+        collectionView.reloadData()
     }
 
 }

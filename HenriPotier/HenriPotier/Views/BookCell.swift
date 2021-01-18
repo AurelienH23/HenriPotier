@@ -105,7 +105,7 @@ class BookCell: UICollectionViewCell {
         titleLabel.text = nil
         overviewLabel.text = nil
         priceLabel.text = nil
-        valueLabel.text = nil
+        syncQuantityWithLocalData()
     }
 
     // MARK: Custom funcs

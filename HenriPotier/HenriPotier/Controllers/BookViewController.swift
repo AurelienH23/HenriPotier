@@ -12,6 +12,11 @@ class BookViewController: UIViewController {
     // MARK: Properties
 
     let book: Book
+    var numberOfBooksInCart = 0 {
+        didSet {
+            valueLabel.text = "\(numberOfBooksInCart)"
+        }
+    }
 
     // MARK: View elements
 
@@ -82,6 +87,8 @@ class BookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupActions()
+        syncQuantityWithLocalData()
     }
     
     // MARK: Custom funcs
@@ -102,6 +109,33 @@ class BookViewController: UIViewController {
         addButton.anchor(top: bottomView.topAnchor, left: nil, bottom: nil, right: bottomView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: .extraLargeSpace, width: 0, height: 0)
         valueLabel.anchor(top: addButton.topAnchor, left: nil, bottom: addButton.bottomAnchor, right: addButton.leftAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: .extraLargeSpace, height: 0)
         minusButton.anchor(top: valueLabel.topAnchor, left: nil, bottom: valueLabel.bottomAnchor, right: valueLabel.leftAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    }
+
+    private func setupActions() {
+        [minusButton, addButton].forEach { (btn) in
+            btn.addTarget(self, action: #selector(didHitButton(button:)), for: .touchUpInside)
+        }
+    }
+
+    private func syncQuantityWithLocalData() {
+        numberOfBooksInCart = Network.getNumberOfItemsInCart(for: book)
+    }
+
+    @objc private func didHitButton(button: ValueButton) {
+        switch button {
+        case minusButton:
+            if numberOfBooksInCart > 0 {
+                numberOfBooksInCart -= 1
+                Network.updateLocalCart(for: book, number: numberOfBooksInCart)
+                NotificationCenter.default.post(name: .cartUpdated, object: nil)
+            }
+        case addButton:
+            numberOfBooksInCart += 1
+            Network.updateLocalCart(for: book, number: numberOfBooksInCart)
+            NotificationCenter.default.post(name: .cartUpdated, object: nil)
+        default:
+            break
+        }
     }
 
     @objc private func dismissView() {

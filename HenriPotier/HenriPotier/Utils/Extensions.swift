@@ -140,3 +140,10 @@ extension UIFont {
     }
 
 }
+
+// MARK: Notification.Name
+extension Notification.Name {
+
+    static let cartUpdated = Notification.Name("cartUpdated")
+
+}
