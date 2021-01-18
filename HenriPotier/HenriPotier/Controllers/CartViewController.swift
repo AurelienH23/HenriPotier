@@ -13,16 +13,7 @@ class CartViewController: UIViewController {
 
     var books = [Book]() {
         didSet {
-            let detailsViews = [bookDetails1, bookDetails2, bookDetails3, bookDetails4, bookDetails5, bookDetails6, bookDetails7]
-            var i = 0
-            books.forEach { (book) in
-                if let qty = book.quantity, qty > 0 {
-                    detailsViews[i].isHidden = false
-                } else {
-                    detailsViews[i].isHidden = true
-                }
-                i += 1
-            }
+            showAddedBooks()
             if books.reduce(0, {$0 + $1.quantity!}) > 0 {
                 setupViewsForBooksInCart()
             } else {
@@ -156,4 +147,17 @@ class CartViewController: UIViewController {
         scrollView.contentSize = CGSize(width: view.frame.width, height: ticketView.frame.height + 2 * .extraLargeSpace)
     }
 
+    private func showAddedBooks() {
+        let detailsViews = [bookDetails1, bookDetails2, bookDetails3, bookDetails4, bookDetails5, bookDetails6, bookDetails7]
+        var i = 0
+        books.forEach { (book) in
+            if let qty = book.quantity, qty > 0 {
+                detailsViews[i].isHidden = false
+            } else {
+                detailsViews[i].isHidden = true
+            }
+            i += 1
+        }
+    }
+    
 }
