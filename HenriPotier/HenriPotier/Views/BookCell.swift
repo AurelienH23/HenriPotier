@@ -18,13 +18,7 @@ class BookCell: UICollectionViewCell {
             overviewLabel.text = book.synopsis.first
             priceLabel.text = "\(book.price)€"
             syncQuantityWithLocalData()
-            Network.fetchImage(at: book.cover) { (img) in
-                DispatchQueue.main.async {
-                    self.cover.image = img
-                }
-            } failure: {
-                print("no image found")
-            }
+            cover.fetchCoverImage(for: book)
         }
     }
     var numberOfBooksInCart = 0 {

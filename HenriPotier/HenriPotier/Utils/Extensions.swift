@@ -148,3 +148,29 @@ extension Notification.Name {
     static let cartUpdated = Notification.Name("cartUpdated")
 
 }
+
+// MARK: UIImageView
+extension UIImageView {
+
+    func fetchCoverImage(for book: Book) {
+        alpha = 0
+        transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        Network.fetchImage(at: book.cover) { (img) in
+            DispatchQueue.main.async {
+                if self.image == nil {
+                    UIView.animate(withDuration: 1, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+                        self.alpha = 1
+                        self.transform = .identity
+                    }, completion: nil)
+                } else {
+                    self.alpha = 1
+                    self.transform = .identity
+                }
+                self.image = img
+            }
+        } failure: {
+            print("Failed fetching image for book cover")
+        }
+    }
+
+}

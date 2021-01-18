@@ -15,6 +15,7 @@ class BookDetailsView: UIView {
         didSet {
             quantityLabel.text = "Qté : \(book.quantity ?? 0)"
             costLabel.attributedText = getTotalCost()
+            cover.fetchCoverImage(for: book)
             if let qty = book.quantity {
                 isHidden = qty == 0
             }

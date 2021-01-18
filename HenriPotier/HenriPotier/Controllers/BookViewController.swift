@@ -38,13 +38,8 @@ class BookViewController: UIViewController {
         return iv
     }()
 
-    lazy var cover: UIImageView = {
-        let iv = UIImageView(image: Network.cacheImages[book.cover])
-        return iv
-    }()
-    
+    lazy var cover = UIImageView(image: Network.cacheImages[book.cover])
     lazy var titleLabel = TitleLabel(book.title)
-    
     lazy var synopsis: UITextView = {
         let tv = UITextView()
         tv.text = book.synopsis.first
