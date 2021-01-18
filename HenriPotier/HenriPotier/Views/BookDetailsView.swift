@@ -11,7 +11,14 @@ class BookDetailsView: UIView {
 
     // MARK: Properties
 
-    let book: Book
+    var book: Book {
+        didSet {
+            quantityLabel.text = "Qté : \(book.quantity ?? 0)"
+            let attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "Total : ", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
+            attributedText.append(NSAttributedString(string: "\(book.price * (book.quantity ?? 0))€", attributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.hpGreen]))
+            costLabel.attributedText = attributedText
+        }
+    }
 
     // MARK: View elements
 

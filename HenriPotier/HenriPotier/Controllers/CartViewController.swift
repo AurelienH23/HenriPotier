@@ -96,10 +96,6 @@ class CartViewController: UIViewController {
 
     // MARK: Lifecycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         books = Network.getLocalCart()
@@ -151,6 +147,7 @@ class CartViewController: UIViewController {
         let detailsViews = [bookDetails1, bookDetails2, bookDetails3, bookDetails4, bookDetails5, bookDetails6, bookDetails7]
         var i = 0
         books.forEach { (book) in
+            detailsViews[i].book = book
             if let qty = book.quantity, qty > 0 {
                 detailsViews[i].isHidden = false
             } else {
