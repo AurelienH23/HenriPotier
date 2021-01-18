@@ -14,9 +14,10 @@ class BookDetailsView: UIView {
     var book: Book {
         didSet {
             quantityLabel.text = "Qté : \(book.quantity ?? 0)"
-            let attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "Total : ", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
-            attributedText.append(NSAttributedString(string: "\(book.price * (book.quantity ?? 0))€", attributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.hpGreen]))
-            costLabel.attributedText = attributedText
+            costLabel.attributedText = getTotalCost()
+            if let qty = book.quantity {
+                isHidden = qty == 0
+            }
         }
     }
 
@@ -38,9 +39,7 @@ class BookDetailsView: UIView {
     }()
     lazy var costLabel: UILabel = {
         let label = UILabel()
-        let attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "Total : ", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
-        attributedText.append(NSAttributedString(string: "\(book.price * (book.quantity ?? 0))€", attributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.hpGreen]))
-        label.attributedText = attributedText
+        label.attributedText = getTotalCost()
         label.textAlignment = .right
         return label
     }()
@@ -67,6 +66,12 @@ class BookDetailsView: UIView {
         priceLabel.anchor(top: titleLabel.bottomAnchor, left: titleLabel.leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         quantityLabel.anchor(top: priceLabel.bottomAnchor, left: titleLabel.leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         costLabel.anchor(top: quantityLabel.bottomAnchor, left: titleLabel.leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    }
+
+    private func getTotalCost() -> NSAttributedString {
+        let attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "Total : ", attributes: [.font: UIFont.systemFont(ofSize: 14)]))
+        attributedText.append(NSAttributedString(string: "\(book.price * (book.quantity ?? 0))€", attributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.hpGreen]))
+        return attributedText
     }
 
 }
