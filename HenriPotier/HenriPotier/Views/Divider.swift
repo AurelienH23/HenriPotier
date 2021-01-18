@@ -13,7 +13,7 @@ class Divider: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .hpLightGray
+        backgroundColor = UIColor(named: "lightGrayTheme")
     }
 
     required init?(coder: NSCoder) {

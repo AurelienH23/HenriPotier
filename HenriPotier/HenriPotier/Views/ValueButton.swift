@@ -28,7 +28,7 @@ class ValueButton: UIButton {
         backgroundColor = UIColor(named: "backgroundColor")
         layer.cornerRadius = .largeCornerRadius
         layer.borderWidth = 1
-        layer.borderColor = UIColor.hpLightGray.cgColor
+        layer.borderColor = UIColor(named: "lightGrayTheme")!.cgColor
         anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: .extraLargeSpace, height: .extraLargeSpace)
     }
 

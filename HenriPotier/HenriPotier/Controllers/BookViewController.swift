@@ -50,6 +50,7 @@ class BookViewController: UIViewController {
         tv.text = book.synopsis.first
         tv.font = .systemFont(ofSize: 16)
         tv.showsVerticalScrollIndicator = false
+        tv.backgroundColor = UIColor(named: "backgroundColor")
         return tv
     }()
 

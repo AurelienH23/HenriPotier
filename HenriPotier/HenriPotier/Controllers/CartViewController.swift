@@ -58,7 +58,7 @@ class CartViewController: UIViewController {
     let ticketView: UIView = {
         let view = UIView()
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.hpLightGray.cgColor
+        view.layer.borderColor = UIColor(named: "lightGrayTheme")!.cgColor
         return view
     }()
 

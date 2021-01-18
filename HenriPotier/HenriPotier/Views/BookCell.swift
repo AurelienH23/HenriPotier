@@ -55,9 +55,10 @@ class BookCell: UICollectionViewCell {
         let view = UIView()
         let shadowLayer = CAGradientLayer()
         shadowLayer.frame = CGRect(x: 0, y: -40, width: UIScreen.main.bounds.width - 180, height: 40)
-        shadowLayer.colors = [UIColor(white: 1, alpha: 0).cgColor, UIColor(white: 1, alpha: 1).cgColor]
+        
+        shadowLayer.colors = [UIColor(named: "backgroundClear")!.cgColor, UIColor(named: "backgroundColor")!.cgColor]
         view.layer.addSublayer(shadowLayer)
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "backgroundColor")
         return view
     }()
 
@@ -80,8 +81,9 @@ class BookCell: UICollectionViewCell {
         btn.textAlignment = .center
         btn.backgroundColor = UIColor(named: "backgroundColor")
         btn.layer.cornerRadius = .largeCornerRadius
+        btn.clipsToBounds = true
         btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.hpLightGray.cgColor
+        btn.layer.borderColor = UIColor(named: "lightGrayTheme")!.cgColor
         btn.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: .extraLargeSpace, height: .extraLargeSpace)
         return btn
     }()
