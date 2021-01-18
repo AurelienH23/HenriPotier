@@ -95,6 +95,21 @@ class CartViewController: UIViewController {
 
     let priceView = PriceView()
 
+    let payButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Règler", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = .hpGreen
+        btn.layer.cornerRadius = .standardTouchSpace / 2
+        btn.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        btn.setImage(UIImage(systemName: "creditcard"), for: .normal)
+        btn.tintColor = .white
+        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .smallSpace)
+        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: .smallSpace, bottom: 0, right: 0)
+        btn.addTarget(self, action: #selector(didHitPayButton), for: .touchUpInside)
+        return btn
+    }()
+
     // MARK: Lifecycle
 
     override func viewDidAppear(_ animated: Bool) {
@@ -130,7 +145,7 @@ class CartViewController: UIViewController {
 
         view.addSubview(scrollView)
         scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: .topPadding, paddingLeft: 0, paddingBottom: .bottomPadding + 63, paddingRight: 0, width: 0, height: 0)
-        scrollView.addSubviews(ticketView, ticketLabel, companyName, logo, vDivider, hDivider, stack, priceView)
+        scrollView.addSubviews(ticketView, ticketLabel, companyName, logo, vDivider, hDivider, stack, priceView, payButton)
         ticketView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: priceView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: .extraLargeSpace, paddingLeft: .extraLargeSpace, paddingBottom: 0, paddingRight: .extraLargeSpace, width: view.frame.width - 2 * .extraLargeSpace, height: 0)
         ticketLabel.anchor(top: ticketView.topAnchor, left: ticketView.leftAnchor, bottom: nil, right: vDivider.leftAnchor, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
         companyName.anchor(top: nil, left: ticketView.leftAnchor, bottom: hDivider.topAnchor, right: vDivider.leftAnchor, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: .smallSpace, paddingRight: .mediumSpace, width: 0, height: 0)
@@ -139,9 +154,11 @@ class CartViewController: UIViewController {
         hDivider.anchor(top: logo.bottomAnchor, left: ticketView.leftAnchor, bottom: nil, right: ticketView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1)
         stack.anchor(top: hDivider.bottomAnchor, left: ticketView.leftAnchor, bottom: nil, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
         priceView.anchor(top: stack.bottomAnchor, left: ticketView.leftAnchor, bottom: ticketView.bottomAnchor, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 270)
+        payButton.anchor(top: ticketView.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: .extraLargeSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 132, height: .standardTouchSpace)
+        payButton.centerHorizontally(to: scrollView)
 
         view.layoutIfNeeded()
-        scrollView.contentSize = CGSize(width: view.frame.width, height: ticketView.frame.height + 2 * .extraLargeSpace)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: ticketView.frame.height + 3 * .extraLargeSpace + .standardTouchSpace)
     }
 
     private func showAddedBooks() {
@@ -160,6 +177,21 @@ class CartViewController: UIViewController {
 
     private func calculateTotalCost() {
         priceView.setTotalPrice(for: books)
+    }
+
+    @objc private func didHitPayButton() {
+        scrollView.subviews.forEach { (subview) in
+            UIView.animate(withDuration: 1) {
+                if subview != self.payButton {
+                    subview.transform = CGAffineTransform(translationX: 0, y: -self.ticketView.frame.height)
+                }
+                subview.alpha = 0
+            } completion: { _ in
+                subview.removeConstraints(subview.constraints)
+                subview.removeFromSuperview()
+                //
+            }
+        }
     }
 
 }
