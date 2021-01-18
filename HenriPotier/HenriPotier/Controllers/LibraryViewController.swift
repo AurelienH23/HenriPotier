@@ -11,6 +11,7 @@ class LibraryViewController: UIViewController {
 
     // MARK: Properties
 
+    var topHeight: NSLayoutConstraint?
     let cellId = "cellId"
     var books = [Book]() {
         didSet {
@@ -32,6 +33,17 @@ class LibraryViewController: UIViewController {
         return cv
     }()
 
+    let topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "backgroundColor")
+        let logo = UIImageView(image: UIImage(named: "logo"))
+        view.addSubview(logo)
+        logo.anchor(top: view.topAnchor, left: nil, bottom: view.bottomAnchor, right: nil, paddingTop: .topPadding + .smallSpace, paddingLeft: 0, paddingBottom: .smallSpace, paddingRight: 0, width: 0, height: 0)
+        logo.widthAnchor.constraint(equalTo: logo.heightAnchor).isActive = true
+        logo.centerHorizontally(to: view)
+        return view
+    }()
+
     // MARK: Lifecycle
 
     override func viewDidLoad() {
@@ -48,8 +60,11 @@ class LibraryViewController: UIViewController {
     }
 
     private func setupViews() {
-        view.addSubview(collectionView)
+        view.addSubviews(collectionView, topView)
         collectionView.anchor(to: view)
+        topView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        topHeight = topView.heightAnchor.constraint(equalToConstant: .topPadding + 100)
+        topHeight?.isActive = true
     }
 
     private func fetchBooks() {
@@ -99,7 +114,16 @@ extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: .extraLargeSpace, left: .extraLargeSpace, bottom: 0, right: .extraLargeSpace)
+        return UIEdgeInsets(top: .topPadding + 56 + .extraLargeSpace, left: .extraLargeSpace, bottom: 0, right: .extraLargeSpace)
+    }
+
+}
+
+extension LibraryViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let verticalScroll = scrollView.contentOffset.y + 44
+        topHeight?.constant = .topPadding + 100 - min(verticalScroll, 56)
     }
 
 }
