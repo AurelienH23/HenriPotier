@@ -33,6 +33,12 @@ class CartViewController: UIViewController {
 
     // MARK: View elements
 
+    let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.showsVerticalScrollIndicator = false
+        return sv
+    }()
+
     let bookImage: UIImageView = {
         let iv = UIImageView(image: UIImage(systemName: "book.closed"))
         iv.tintColor = UIColor(named: "textColor")
@@ -88,12 +94,12 @@ class CartViewController: UIViewController {
     let vDivider = Divider()
 
     lazy var bookDetails1 = BookDetailsView(for: books[0])
-    lazy var bookDetails2 = BookDetailsView(for: books[0])
-    lazy var bookDetails3 = BookDetailsView(for: books[0])
-    lazy var bookDetails4 = BookDetailsView(for: books[0])
-    lazy var bookDetails5 = BookDetailsView(for: books[0])
-    lazy var bookDetails6 = BookDetailsView(for: books[0])
-    lazy var bookDetails7 = BookDetailsView(for: books[0])
+    lazy var bookDetails2 = BookDetailsView(for: books[1])
+    lazy var bookDetails3 = BookDetailsView(for: books[2])
+    lazy var bookDetails4 = BookDetailsView(for: books[3])
+    lazy var bookDetails5 = BookDetailsView(for: books[4])
+    lazy var bookDetails6 = BookDetailsView(for: books[5])
+    lazy var bookDetails7 = BookDetailsView(for: books[6])
 
     let priceView = PriceView()
 
@@ -134,71 +140,20 @@ class CartViewController: UIViewController {
         stack.spacing = .mediumSpace
         stack.axis = .vertical
 
-        view.addSubviews(ticketView, ticketLabel, companyName, logo, vDivider, hDivider, stack, priceView)
-        ticketView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: priceView.bottomAnchor, right: view.rightAnchor, paddingTop: .topPadding + .extraLargeSpace, paddingLeft: .extraLargeSpace, paddingBottom: 0, paddingRight: .extraLargeSpace, width: 0, height: 0)
+        view.addSubview(scrollView)
+        scrollView.anchor(to: view)
+        scrollView.addSubviews(ticketView, ticketLabel, companyName, logo, vDivider, hDivider, stack, priceView)
+        ticketView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: priceView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: .topPadding + .extraLargeSpace, paddingLeft: .extraLargeSpace, paddingBottom: 0, paddingRight: .extraLargeSpace, width: view.frame.width - 2 * .extraLargeSpace, height: 0)
         ticketLabel.anchor(top: ticketView.topAnchor, left: ticketView.leftAnchor, bottom: nil, right: vDivider.leftAnchor, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
-        companyName.anchor(top: nil, left: ticketView.leftAnchor, bottom: hDivider.topAnchor, right: vDivider.leftAnchor, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: .mediumSpace, paddingRight: .mediumSpace, width: 0, height: 0)
+        companyName.anchor(top: nil, left: ticketView.leftAnchor, bottom: hDivider.topAnchor, right: vDivider.leftAnchor, paddingTop: 0, paddingLeft: .mediumSpace, paddingBottom: .smallSpace, paddingRight: .mediumSpace, width: 0, height: 0)
         logo.anchor(top: ticketView.topAnchor, left: nil, bottom: nil, right: ticketView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 76, height: 76)
         vDivider.anchor(top: ticketView.topAnchor, left: nil, bottom: hDivider.topAnchor, right: logo.leftAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 1, height: 0)
         hDivider.anchor(top: logo.bottomAnchor, left: ticketView.leftAnchor, bottom: nil, right: ticketView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1)
         stack.anchor(top: hDivider.bottomAnchor, left: ticketView.leftAnchor, bottom: nil, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)
         priceView.anchor(top: stack.bottomAnchor, left: ticketView.leftAnchor, bottom: ticketView.bottomAnchor, right: ticketView.rightAnchor, paddingTop: .mediumSpace, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 200)
-    }
 
-}
-
-class BookDetailsView: UIView {
-
-    // MARK: Properties
-
-    let book: Book
-
-    // MARK: View elements
-
-    // MARK: Lifecycle
-
-    init(for book: Book) {
-        self.book = book
-        super.init(frame: .zero)
-        setupViews()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: Custom funcs
-
-    private func setupViews() {
-        backgroundColor = .red
-        anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 100)
-    }
-
-}
-
-class PriceView: UIView {
-
-    // MARK: Properties
-
-    // MARK: View elements
-
-    // MARK: Lifecycle
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: Custom funcs
-
-    private func setupViews() {
-        backgroundColor = .hpGreenBg
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.hpGreen.cgColor
+        view.layoutIfNeeded()
+        scrollView.contentSize = CGSize(width: view.frame.width, height: ticketView.frame.height + .bottomPadding + 60 + .extraLargeSpace)
     }
 
 }
