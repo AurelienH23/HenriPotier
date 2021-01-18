@@ -172,4 +172,22 @@ class Network: NSObject {
         }
     }
 
+    static func eraseCartFromLocalData(completion: @escaping () -> Void) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDBook")
+
+        do {
+            let localBooks = try context.fetch(fetchRequest) as! [CDBook]
+            localBooks.forEach { (book) in
+                book.setValue(0, forKey: "quantity")
+            }
+            try context.save()
+            completion()
+        } catch {
+            print("Error while erasing local data")
+        }
+    }
+
 }

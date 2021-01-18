@@ -189,7 +189,10 @@ class CartViewController: UIViewController {
             } completion: { _ in
                 subview.removeConstraints(subview.constraints)
                 subview.removeFromSuperview()
-                //
+                Network.eraseCartFromLocalData {
+                    self.books = Network.getLocalCart()
+                    NotificationCenter.default.post(name: .cartUpdated, object: nil)
+                }
             }
         }
     }
