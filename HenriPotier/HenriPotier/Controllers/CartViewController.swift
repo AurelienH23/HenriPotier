@@ -28,6 +28,7 @@ class CartViewController: UIViewController {
     let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.showsVerticalScrollIndicator = false
+        sv.showsHorizontalScrollIndicator = false
         return sv
     }()
 
@@ -187,8 +188,8 @@ class CartViewController: UIViewController {
                 }
                 subview.alpha = 0
             } completion: { _ in
-                subview.removeConstraints(subview.constraints)
-                subview.removeFromSuperview()
+                subview.transform = .identity
+                subview.alpha = 1
                 Network.eraseCartFromLocalData {
                     self.books = Network.getLocalCart()
                     NotificationCenter.default.post(name: .cartUpdated, object: nil)

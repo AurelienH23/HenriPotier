@@ -29,6 +29,7 @@
 		0DBEA5D925B58ED20047B5E0 /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5D825B58ED20047B5E0 /* BookDetailsView.swift */; };
 		0DBEA5DE25B58FA80047B5E0 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5DD25B58FA80047B5E0 /* PriceView.swift */; };
 		0DBEA5E325B6114A0047B5E0 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5E225B6114A0047B5E0 /* Offer.swift */; };
+		0DBEA5EC25B750C00047B5E0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5EB25B750C00047B5E0 /* LaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		0DBEA5D825B58ED20047B5E0 /* BookDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsView.swift; sourceTree = "<group>"; };
 		0DBEA5DD25B58FA80047B5E0 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		0DBEA5E225B6114A0047B5E0 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		0DBEA5EB25B750C00047B5E0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		0D7DF91225B4DEA70080872C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0DBEA5EB25B750C00047B5E0 /* LaunchViewController.swift */,
 				0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */,
 				0D7DF8F725B4C8200080872C /* LibraryViewController.swift */,
 				0D7DF93025B4EC240080872C /* BookViewController.swift */,
@@ -352,6 +355,7 @@
 				0D7DF91425B4DEB70080872C /* Book.swift in Sources */,
 				0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */,
 				0D7DF8B225B4C21A0080872C /* SceneDelegate.swift in Sources */,
+				0DBEA5EC25B750C00047B5E0 /* LaunchViewController.swift in Sources */,
 				0D7DF93125B4EC240080872C /* BookViewController.swift in Sources */,
 				0DBEA5D925B58ED20047B5E0 /* BookDetailsView.swift in Sources */,
 				0D7DF94025B4F4970080872C /* Divider.swift in Sources */,

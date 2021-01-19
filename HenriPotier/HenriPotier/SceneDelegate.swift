@@ -13,11 +13,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        // set the main scene
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = MainTabBarController()
+        window?.rootViewController = LaunchViewController()
         window?.makeKeyAndVisible()
+
+        // observe for when to launch the app
+        NotificationCenter.default.addObserver(self, selector: #selector(startMainTabBar), name: NSNotification.Name(rawValue: "startApp"), object: nil)
+    }
+
+    @objc private func startMainTabBar() {
+        window?.rootViewController = MainTabBarController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
