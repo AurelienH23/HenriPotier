@@ -12,14 +12,7 @@ class LibraryViewController: UIViewController {
     // MARK: Properties
 
     var topHeight: NSLayoutConstraint?
-    let cellId = "cellId"
-    var books = [Book]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
+    let viewModel = LibraryViewModel()
 
     // MARK: View elements
 
@@ -29,7 +22,7 @@ class LibraryViewController: UIViewController {
         cv.dataSource = self
         cv.delegate = self
         cv.showsVerticalScrollIndicator = false
-        cv.register(BookCell.self, forCellWithReuseIdentifier: cellId)
+        cv.register(BookCell.self, forCellWithReuseIdentifier: viewModel.cellId)
         return cv
     }()
 
@@ -50,6 +43,7 @@ class LibraryViewController: UIViewController {
         super.viewDidLoad()
         setupObservers()
         setupViews()
+        setupBinders()
         fetchBooks()
     }
 
@@ -67,13 +61,16 @@ class LibraryViewController: UIViewController {
         topHeight?.isActive = true
     }
 
-    private func fetchBooks() {
-        Network.fetchBooks { (books) in
-            self.books = books
-            Network.prepareLocalData(with: books)
-        } failure: {
-            print("bad")
+    private func setupBinders() {
+        viewModel.books.bind { _ in
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
+    }
+
+    private func fetchBooks() {
+        viewModel.fetchBooks()
     }
 
     @objc private func reloadAfterCartUpdated() {
@@ -86,17 +83,15 @@ class LibraryViewController: UIViewController {
 extension LibraryViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return books.count
+        return viewModel.numberOfItems()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BookCell
-        cell.book = books[indexPath.item]
-        return cell
+        return viewModel.cellForItem(at: indexPath, from: collectionView)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return .extraLargeSpace
+        return viewModel.cellSpacing()
     }
 
 }
@@ -104,17 +99,17 @@ extension LibraryViewController: UICollectionViewDataSource {
 extension LibraryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedBook = books[indexPath.item]
+        let selectedBook = viewModel.books.value[indexPath.item]
         let bookController = BookViewController(for: selectedBook)
         present(bookController, animated: true, completion: nil)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 2 * .extraLargeSpace, height: 180)
+        return viewModel.cellSize(from: collectionView)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: .topPadding + 56 + .extraLargeSpace, left: .extraLargeSpace, bottom: 0, right: .extraLargeSpace)
+        return viewModel.insets()
     }
 
 }
