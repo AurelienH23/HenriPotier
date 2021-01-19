@@ -11,12 +11,7 @@ class BookViewController: UIViewController {
 
     // MARK: Properties
 
-    let book: Book
-    var numberOfBooksInCart = 0 {
-        didSet {
-            valueLabel.text = "\(numberOfBooksInCart)"
-        }
-    }
+    let viewModel: BookViewModel
 
     // MARK: View elements
 
@@ -29,7 +24,7 @@ class BookViewController: UIViewController {
     }()
 
     lazy var blurredImage: UIImageView = {
-        let iv = UIImageView(image: Network.cacheImages[book.cover])
+        let iv = UIImageView(image: Network.cacheImages[viewModel.book.cover])
         iv.contentMode = .scaleAspectFill
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         iv.addSubview(blurView)
@@ -38,11 +33,11 @@ class BookViewController: UIViewController {
         return iv
     }()
 
-    lazy var cover = UIImageView(image: Network.cacheImages[book.cover])
-    lazy var titleLabel = TitleLabel(book.title)
+    lazy var cover = UIImageView(image: Network.cacheImages[viewModel.book.cover])
+    lazy var titleLabel = TitleLabel(viewModel.book.title)
     lazy var synopsis: UITextView = {
         let tv = UITextView()
-        tv.text = book.synopsis.first
+        tv.text = viewModel.book.synopsis.first
         tv.font = .systemFont(ofSize: 16)
         tv.showsVerticalScrollIndicator = false
         tv.backgroundColor = UIColor(named: "backgroundColor")
@@ -57,7 +52,7 @@ class BookViewController: UIViewController {
         return view
     }()
 
-    lazy var priceLabel = PriceLabel("\(book.price)€")
+    lazy var priceLabel = PriceLabel("\(viewModel.book.price)€")
     let minusButton = ValueButton("-")
     let valueLabel: UILabel = {
         let label = UILabel()
@@ -72,7 +67,7 @@ class BookViewController: UIViewController {
     // MARK: Lifecycle
 
     init(for book: Book) {
-        self.book = book
+        self.viewModel = BookViewModel(for: book)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -83,8 +78,8 @@ class BookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupBinders()
         setupActions()
-        syncQuantityWithLocalData()
     }
     
     // MARK: Custom funcs
@@ -107,28 +102,24 @@ class BookViewController: UIViewController {
         minusButton.anchor(top: valueLabel.topAnchor, left: nil, bottom: valueLabel.bottomAnchor, right: valueLabel.leftAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
 
+    private func setupBinders() {
+        viewModel.numberOfBooksInCart.bind { (booksCount) in
+            self.valueLabel.text = "\(booksCount)"
+        }
+    }
+
     private func setupActions() {
         [minusButton, addButton].forEach { (btn) in
             btn.addTarget(self, action: #selector(didHitButton(button:)), for: .touchUpInside)
         }
     }
 
-    private func syncQuantityWithLocalData() {
-        numberOfBooksInCart = Network.getNumberOfItemsInCart(for: book)
-    }
-
     @objc private func didHitButton(button: ValueButton) {
         switch button {
         case minusButton:
-            if numberOfBooksInCart > 0 {
-                numberOfBooksInCart -= 1
-                Network.updateLocalCart(for: book, number: numberOfBooksInCart)
-                NotificationCenter.default.post(name: .cartUpdated, object: nil)
-            }
+            viewModel.substractBook()
         case addButton:
-            numberOfBooksInCart += 1
-            Network.updateLocalCart(for: book, number: numberOfBooksInCart)
-            NotificationCenter.default.post(name: .cartUpdated, object: nil)
+            viewModel.addBook()
         default:
             break
         }

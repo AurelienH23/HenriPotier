@@ -32,6 +32,7 @@
 		0DBEA5EC25B750C00047B5E0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5EB25B750C00047B5E0 /* LaunchViewController.swift */; };
 		0DBEA5F425B75A1E0047B5E0 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5F325B75A1D0047B5E0 /* Box.swift */; };
 		0DBEA5F925B75E210047B5E0 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5F825B75E210047B5E0 /* LibraryViewModel.swift */; };
+		0DBEA60525B761AD0047B5E0 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA60425B761AD0047B5E0 /* BookViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		0DBEA5EB25B750C00047B5E0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		0DBEA5F325B75A1D0047B5E0 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		0DBEA5F825B75E210047B5E0 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		0DBEA60425B761AD0047B5E0 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				0DBEA5F825B75E210047B5E0 /* LibraryViewModel.swift */,
+				0DBEA60425B761AD0047B5E0 /* BookViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				0D7DF90D25B4D4210080872C /* Network.swift in Sources */,
 				0D7DF93625B4F01B0080872C /* TitleLabel.swift in Sources */,
 				0DBEA5DE25B58FA80047B5E0 /* PriceView.swift in Sources */,
+				0DBEA60525B761AD0047B5E0 /* BookViewModel.swift in Sources */,
 				0D7DF93B25B4F3F30080872C /* PriceLabel.swift in Sources */,
 				0DBEA5E325B6114A0047B5E0 /* Offer.swift in Sources */,
 				0DBEA5F925B75E210047B5E0 /* LibraryViewModel.swift in Sources */,
