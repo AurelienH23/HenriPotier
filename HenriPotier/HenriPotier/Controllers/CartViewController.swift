@@ -145,7 +145,7 @@ class CartViewController: UIViewController {
         stack.axis = .vertical
 
         view.addSubview(scrollView)
-        scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: .topPadding, paddingLeft: 0, paddingBottom: .bottomPadding + 63, paddingRight: 0, width: 0, height: 0)
+        scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: .topPadding, paddingLeft: 0, paddingBottom: .bottomPadding + .standardTouchSpace, paddingRight: 0, width: 0, height: 0)
         scrollView.addSubviews(ticketView, ticketLabel, companyName, logo, vDivider, hDivider, stack, priceView, payButton)
         ticketView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: priceView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: .extraLargeSpace, paddingLeft: .extraLargeSpace, paddingBottom: 0, paddingRight: .extraLargeSpace, width: view.frame.width - 2 * .extraLargeSpace, height: 0)
         ticketLabel.anchor(top: ticketView.topAnchor, left: ticketView.leftAnchor, bottom: nil, right: vDivider.leftAnchor, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: .mediumSpace, width: 0, height: 0)

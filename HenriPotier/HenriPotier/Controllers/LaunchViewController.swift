@@ -9,10 +9,6 @@ import UIKit
 
 class LaunchViewController: UIViewController {
 
-    // MARK: Properties
-
-    var logoHeight: NSLayoutConstraint?
-
     // MARK: View elements
 
     let logo = UIImageView(image: UIImage(named: "logo"))
