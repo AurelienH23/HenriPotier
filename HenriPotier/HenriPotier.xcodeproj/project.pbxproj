@@ -36,6 +36,8 @@
 		0DBEA61225B9C50F0047B5E0 /* BookDetailsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA61125B9C50F0047B5E0 /* BookDetailsViewTests.swift */; };
 		0DBEA61725B9C7D00047B5E0 /* LibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA61625B9C7D00047B5E0 /* LibraryViewModelTests.swift */; };
 		0DBEA62125B9CC8E0047B5E0 /* BookViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA62025B9CC8E0047B5E0 /* BookViewModelTests.swift */; };
+		0DBEA62925B9CF650047B5E0 /* PricingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA62825B9CF650047B5E0 /* PricingLabel.swift */; };
+		0DBEA62E25B9CF790047B5E0 /* PricingValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA62D25B9CF790047B5E0 /* PricingValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		0DBEA61125B9C50F0047B5E0 /* BookDetailsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewTests.swift; sourceTree = "<group>"; };
 		0DBEA61625B9C7D00047B5E0 /* LibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelTests.swift; sourceTree = "<group>"; };
 		0DBEA62025B9CC8E0047B5E0 /* BookViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModelTests.swift; sourceTree = "<group>"; };
+		0DBEA62825B9CF650047B5E0 /* PricingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingLabel.swift; sourceTree = "<group>"; };
+		0DBEA62D25B9CF790047B5E0 /* PricingValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,8 @@
 				0D7DF93F25B4F4970080872C /* Divider.swift */,
 				0DBEA5D825B58ED20047B5E0 /* BookDetailsView.swift */,
 				0DBEA5DD25B58FA80047B5E0 /* PriceView.swift */,
+				0DBEA62825B9CF650047B5E0 /* PricingLabel.swift */,
+				0DBEA62D25B9CF790047B5E0 /* PricingValue.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 				0D7DF93625B4F01B0080872C /* TitleLabel.swift in Sources */,
 				0DBEA5DE25B58FA80047B5E0 /* PriceView.swift in Sources */,
 				0DBEA60525B761AD0047B5E0 /* BookViewModel.swift in Sources */,
+				0DBEA62E25B9CF790047B5E0 /* PricingValue.swift in Sources */,
 				0D7DF93B25B4F3F30080872C /* PriceLabel.swift in Sources */,
 				0DBEA5E325B6114A0047B5E0 /* Offer.swift in Sources */,
 				0DBEA5F925B75E210047B5E0 /* LibraryViewModel.swift in Sources */,
@@ -382,6 +389,7 @@
 				0DBEA5F425B75A1E0047B5E0 /* Box.swift in Sources */,
 				0D7DF8B025B4C21A0080872C /* AppDelegate.swift in Sources */,
 				0D7DF91425B4DEB70080872C /* Book.swift in Sources */,
+				0DBEA62925B9CF650047B5E0 /* PricingLabel.swift in Sources */,
 				0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */,
 				0D7DF8B225B4C21A0080872C /* SceneDelegate.swift in Sources */,
 				0DBEA5EC25B750C00047B5E0 /* LaunchViewController.swift in Sources */,

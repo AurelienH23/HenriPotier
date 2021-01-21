@@ -53,7 +53,7 @@ class BookViewController: UIViewController {
     }()
 
     lazy var priceLabel = PriceLabel("\(viewModel.book.price)€")
-    let minusButton = ValueButton("-")
+    let minusButton = ValueButton("-", target: self, action: #selector(didHitButton(button:)))
     let valueLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
@@ -62,7 +62,7 @@ class BookViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
-    let addButton = ValueButton("+")
+    let addButton = ValueButton("+", target: self, action: #selector(didHitButton(button:)))
 
     // MARK: Lifecycle
 
@@ -79,7 +79,6 @@ class BookViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupBinders()
-        setupActions()
     }
     
     // MARK: Custom funcs
@@ -105,12 +104,6 @@ class BookViewController: UIViewController {
     private func setupBinders() {
         viewModel.numberOfBooksInCart.bind { (booksCount) in
             self.valueLabel.text = "\(booksCount)"
-        }
-    }
-
-    private func setupActions() {
-        [minusButton, addButton].forEach { (btn) in
-            btn.addTarget(self, action: #selector(didHitButton(button:)), for: .touchUpInside)
         }
     }
 

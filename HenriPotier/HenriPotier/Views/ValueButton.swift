@@ -11,11 +11,12 @@ class ValueButton: UIButton {
 
     // MARK: Lifecycle
     
-    init(_ text: String) {
+    init(_ text: String, target: Any, action: Selector) {
         super.init(frame: .zero)
         setTitle(text, for: .normal)
-        setupViews()
+        addTarget(target, action: action, for: .touchUpInside)
         addTarget(self, action: #selector(vibrateOnClick), for: .touchUpInside)
+        setupViews()
     }
 
     required init?(coder: NSCoder) {

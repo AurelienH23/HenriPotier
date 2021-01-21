@@ -58,7 +58,7 @@ class BookCell: UICollectionViewCell {
 
     let priceLabel = PriceLabel("")
 
-    let minusButton = ValueButton("-")
+    lazy var minusButton = ValueButton("-", target: self, action: #selector(didHitButton(button:)))
     let valueLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
@@ -67,7 +67,7 @@ class BookCell: UICollectionViewCell {
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
-    let addButton = ValueButton("+")
+    lazy var addButton = ValueButton("+", target: self, action: #selector(didHitButton(button:)))
 
     let infoButton: UILabel = {
         let btn = UILabel()
@@ -89,7 +89,6 @@ class BookCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        setupActions()
     }
 
     required init?(coder: NSCoder) {
@@ -118,12 +117,6 @@ class BookCell: UICollectionViewCell {
         addButton.anchor(top: valueLabel.topAnchor, left: valueLabel.rightAnchor, bottom: valueLabel.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         infoButton.anchor(top: addButton.topAnchor, left: nil, bottom: addButton.bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         divider.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1)
-    }
-
-    private func setupActions() {
-        [minusButton, addButton].forEach { (btn) in
-            btn.addTarget(self, action: #selector(didHitButton(button:)), for: .touchUpInside)
-        }
     }
 
     @objc private func didHitButton(button: ValueButton) {
