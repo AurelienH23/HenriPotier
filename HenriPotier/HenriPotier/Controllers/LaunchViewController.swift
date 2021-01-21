@@ -24,7 +24,6 @@ class LaunchViewController: UIViewController {
     // MARK: Custom funcs
 
     private func setupViews() {
-        view.backgroundColor = .white
         view.addSubview(logo)
         
         logo.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 200, height: 200)
@@ -35,9 +34,8 @@ class LaunchViewController: UIViewController {
     }
 
     private func launchAnimation() {
-        UIView.animate(withDuration: 1, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
-            self.view.backgroundColor = UIColor(named: "backgroundColor")
-            self.logo.transform = CGAffineTransform(translationX: 0, y: -50).scaledBy(x: 0.8, y: 0.8)
+        UIView.animate(withDuration: 1, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseIn) {
+            self.logo.transform = CGAffineTransform(translationX: 0, y: -20).scaledBy(x: 0.8, y: 0.8)
             self.logo.alpha = 0
         } completion: { _ in
             NotificationCenter.default.post(name: NSNotification.Name("startApp"), object: nil)

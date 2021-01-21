@@ -34,6 +34,12 @@ class LibraryViewController: UIViewController {
         logo.anchor(top: view.topAnchor, left: nil, bottom: view.bottomAnchor, right: nil, paddingTop: .topPadding + .smallSpace, paddingLeft: 0, paddingBottom: .smallSpace, paddingRight: 0, width: 0, height: 0)
         logo.widthAnchor.constraint(equalTo: logo.heightAnchor).isActive = true
         logo.centerHorizontally(to: view)
+        logo.alpha = 0
+        logo.transform = CGAffineTransform(translationX: 0, y: 10).scaledBy(x: 1.1, y: 1.1)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            logo.alpha = 1
+            logo.transform = .identity
+        }, completion: nil)
         return view
     }()
 

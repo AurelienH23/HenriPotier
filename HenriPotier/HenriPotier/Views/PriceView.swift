@@ -9,8 +9,6 @@ import UIKit
 
 class PriceView: UIView {
 
-    // MARK: Properties
-
     // MARK: View elements
 
     let costLabel = PricingLabel("Coût total de la commande :")

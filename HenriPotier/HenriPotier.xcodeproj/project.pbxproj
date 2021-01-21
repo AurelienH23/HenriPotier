@@ -12,7 +12,6 @@
 		0D7DF8BA25B4C21A0080872C /* HenriPotier.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8B825B4C21A0080872C /* HenriPotier.xcdatamodeld */; };
 		0D7DF8BC25B4C21B0080872C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D7DF8BB25B4C21B0080872C /* Assets.xcassets */; };
 		0D7DF8BF25B4C21B0080872C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D7DF8BD25B4C21B0080872C /* LaunchScreen.storyboard */; };
-		0D7DF8CA25B4C21B0080872C /* HenriPotierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8C925B4C21B0080872C /* HenriPotierTests.swift */; };
 		0D7DF8D525B4C21B0080872C /* HenriPotierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8D425B4C21B0080872C /* HenriPotierUITests.swift */; };
 		0D7DF8F325B4C6CE0080872C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8F225B4C6CE0080872C /* MainTabBarController.swift */; };
 		0D7DF8F825B4C8200080872C /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DF8F725B4C8200080872C /* LibraryViewController.swift */; };
@@ -33,6 +32,10 @@
 		0DBEA5F425B75A1E0047B5E0 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5F325B75A1D0047B5E0 /* Box.swift */; };
 		0DBEA5F925B75E210047B5E0 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA5F825B75E210047B5E0 /* LibraryViewModel.swift */; };
 		0DBEA60525B761AD0047B5E0 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA60425B761AD0047B5E0 /* BookViewModel.swift */; };
+		0DBEA60A25B8B50E0047B5E0 /* BookCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA60925B8B50E0047B5E0 /* BookCellTest.swift */; };
+		0DBEA61225B9C50F0047B5E0 /* BookDetailsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA61125B9C50F0047B5E0 /* BookDetailsViewTests.swift */; };
+		0DBEA61725B9C7D00047B5E0 /* LibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA61625B9C7D00047B5E0 /* LibraryViewModelTests.swift */; };
+		0DBEA62125B9CC8E0047B5E0 /* BookViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA62025B9CC8E0047B5E0 /* BookViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +64,6 @@
 		0D7DF8BE25B4C21B0080872C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D7DF8C025B4C21B0080872C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D7DF8C525B4C21B0080872C /* HenriPotierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HenriPotierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D7DF8C925B4C21B0080872C /* HenriPotierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HenriPotierTests.swift; sourceTree = "<group>"; };
 		0D7DF8CB25B4C21B0080872C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D7DF8D025B4C21B0080872C /* HenriPotierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HenriPotierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7DF8D425B4C21B0080872C /* HenriPotierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HenriPotierUITests.swift; sourceTree = "<group>"; };
@@ -85,6 +87,10 @@
 		0DBEA5F325B75A1D0047B5E0 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		0DBEA5F825B75E210047B5E0 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 		0DBEA60425B761AD0047B5E0 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		0DBEA60925B8B50E0047B5E0 /* BookCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCellTest.swift; sourceTree = "<group>"; };
+		0DBEA61125B9C50F0047B5E0 /* BookDetailsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewTests.swift; sourceTree = "<group>"; };
+		0DBEA61625B9C7D00047B5E0 /* LibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelTests.swift; sourceTree = "<group>"; };
+		0DBEA62025B9CC8E0047B5E0 /* BookViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +156,10 @@
 		0D7DF8C825B4C21B0080872C /* HenriPotierTests */ = {
 			isa = PBXGroup;
 			children = (
-				0D7DF8C925B4C21B0080872C /* HenriPotierTests.swift */,
+				0DBEA60925B8B50E0047B5E0 /* BookCellTest.swift */,
+				0DBEA61125B9C50F0047B5E0 /* BookDetailsViewTests.swift */,
+				0DBEA61625B9C7D00047B5E0 /* LibraryViewModelTests.swift */,
+				0DBEA62025B9CC8E0047B5E0 /* BookViewModelTests.swift */,
 				0D7DF8CB25B4C21B0080872C /* Info.plist */,
 			);
 			path = HenriPotierTests;
@@ -388,7 +397,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D7DF8CA25B4C21B0080872C /* HenriPotierTests.swift in Sources */,
+				0DBEA61225B9C50F0047B5E0 /* BookDetailsViewTests.swift in Sources */,
+				0DBEA62125B9CC8E0047B5E0 /* BookViewModelTests.swift in Sources */,
+				0DBEA60A25B8B50E0047B5E0 /* BookCellTest.swift in Sources */,
+				0DBEA61725B9C7D00047B5E0 /* LibraryViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

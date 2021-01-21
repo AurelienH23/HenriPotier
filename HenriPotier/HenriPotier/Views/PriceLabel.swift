@@ -9,10 +9,6 @@ import UIKit
 
 class PriceLabel: UILabel {
     
-    // MARK: Properties
-    
-    // MARK: View elements
-    
     // MARK: Lifecycle
     
     init(_ text: String) {
