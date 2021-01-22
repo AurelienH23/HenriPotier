@@ -11,7 +11,7 @@ class BookCell: UICollectionViewCell {
 
     // MARK: Properties
 
-    var book: Book? {
+    internal var book: Book? {
         didSet {
             guard let book = book else { return }
             titleLabel.text = book.title
@@ -21,7 +21,8 @@ class BookCell: UICollectionViewCell {
             cover.fetchCoverImage(for: book)
         }
     }
-    var numberOfBooksInCart = 0 {
+
+    private var numberOfBooksInCart = 0 {
         didSet {
             valueLabel.text = "\(numberOfBooksInCart)"
         }
@@ -29,15 +30,15 @@ class BookCell: UICollectionViewCell {
 
     // MARK: View elements
 
-    let cover: UIImageView = {
+    private let cover: UIImageView = {
         let iv = UIImageView(image: nil)
         iv.backgroundColor = .hpLightGray
         return iv
     }()
 
-    let titleLabel = TitleLabel("")
+    private let titleLabel = TitleLabel("")
 
-    let overviewLabel: UILabel = {
+    private let overviewLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
         label.textColor = .hpGray
@@ -45,44 +46,43 @@ class BookCell: UICollectionViewCell {
         return label
     }()
     
-    let hideView: UIView = {
+    private let hideView: UIView = {
         let view = UIView()
         let shadowLayer = CAGradientLayer()
         shadowLayer.frame = CGRect(x: 0, y: -40, width: UIScreen.main.bounds.width - 180, height: 40)
-        
-        shadowLayer.colors = [UIColor(named: "backgroundClear")!.cgColor, UIColor(named: "backgroundColor")!.cgColor]
+        shadowLayer.colors = [UIColor(named: "backgroundClear")!.cgColor, UIColor.backgroundColor!.cgColor]
         view.layer.addSublayer(shadowLayer)
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         return view
     }()
 
-    let priceLabel = PriceLabel("")
+    private let priceLabel = PriceLabel("")
 
-    lazy var minusButton = ValueButton("-", target: self, action: #selector(didHitButton(button:)))
-    let valueLabel: UILabel = {
+    private lazy var minusButton = ValueButton("-", target: self, action: #selector(didHitButton(button:)))
+    private let valueLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
-        label.textColor = UIColor(named: "textColor")
+        label.textColor = UIColor.textColor
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
-    lazy var addButton = ValueButton("+", target: self, action: #selector(didHitButton(button:)))
+    private lazy var addButton = ValueButton("+", target: self, action: #selector(didHitButton(button:)))
 
-    let infoButton: UILabel = {
+    private let infoButton: UILabel = {
         let btn = UILabel()
         btn.text = "?"
         btn.textAlignment = .center
-        btn.backgroundColor = UIColor(named: "backgroundColor")
+        btn.backgroundColor = UIColor.backgroundColor
         btn.layer.cornerRadius = .largeCornerRadius
         btn.clipsToBounds = true
         btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor(named: "lightGrayTheme")!.cgColor
+        btn.layer.borderColor = UIColor.lightGrayTheme.cgColor
         btn.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: .extraLargeSpace, height: .extraLargeSpace)
         return btn
     }()
 
-    let divider = Divider()
+    private let divider = Divider()
 
     // MARK: Lifecycle
 

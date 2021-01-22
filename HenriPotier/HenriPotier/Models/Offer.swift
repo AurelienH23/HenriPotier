@@ -12,7 +12,3 @@ struct Offer: Decodable {
     let value: Int
     let sliceValue: Int?
 }
-
-struct Offers: Decodable {
-    let offers: [Offer]
-}

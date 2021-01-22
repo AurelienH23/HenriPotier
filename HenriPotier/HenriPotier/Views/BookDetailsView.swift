@@ -24,21 +24,11 @@ class BookDetailsView: UIView {
 
     // MARK: View elements
 
-    lazy var cover = UIImageView(image: Network.cacheImages[book.cover])
-    lazy var titleLabel = TitleLabel(book.title)
-    lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Prix : \(book.price)€"
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
-    lazy var quantityLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Qté : \(book.quantity ?? 0)"
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
-    lazy var costLabel: UILabel = {
+    private lazy var cover = UIImageView(image: Network.cacheImages[book.cover])
+    private lazy var titleLabel = TitleLabel(book.title)
+    private lazy var priceLabel = DetailLabel("Prix : \(book.price)€")
+    private lazy var quantityLabel = DetailLabel("Qté : \(book.quantity ?? 0)")
+    private lazy var costLabel: UILabel = {
         let label = UILabel()
         label.attributedText = getTotalCost()
         label.textAlignment = .right

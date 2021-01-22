@@ -21,7 +21,7 @@ class MainTabBarController: UITabBarController {
     // MARK: Custom funcs
 
     private func setupViews() {
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
     }
 
     private func setupControllers() {
@@ -33,9 +33,9 @@ class MainTabBarController: UITabBarController {
     }
 
     private func setupTabBar() {
-        tabBar.barTintColor = UIColor(named: "backgroundColor")
+        tabBar.barTintColor = UIColor.backgroundColor
         tabBar.tintColor = .hpGreen
-        tabBar.unselectedItemTintColor = UIColor(named: "textColor")
+        tabBar.unselectedItemTintColor = UIColor.textColor
     }
 
     // MARK: Tab bar

@@ -26,11 +26,11 @@ class ValueButton: UIButton {
     // MARK: Custom funcs
 
     private func setupViews() {
-        setTitleColor(UIColor(named: "textColor"), for: .normal)
-        backgroundColor = UIColor(named: "backgroundColor")
+        setTitleColor(UIColor.textColor, for: .normal)
+        backgroundColor = UIColor.backgroundColor
         layer.cornerRadius = .largeCornerRadius
         layer.borderWidth = 1
-        layer.borderColor = UIColor(named: "lightGrayTheme")!.cgColor
+        layer.borderColor = UIColor.lightGrayTheme.cgColor
         anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: .extraLargeSpace, height: .extraLargeSpace)
     }
 

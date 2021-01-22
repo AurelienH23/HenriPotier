@@ -19,6 +19,10 @@ extension UIColor {
     static let hpLightGray = UIColor.rgb(red: 240, green: 240, blue: 240)
     static let hpGray = UIColor.rgb(red: 200, green: 200, blue: 200)
 
+    static let textColor = UIColor(named: "textColor")
+    static let backgroundColor = UIColor(named: "backgroundColor")
+    static let lightGrayTheme = UIColor(named: "lightGrayTheme") ?? UIColor.lightGray
+
 }
 
 // MARK: UIView

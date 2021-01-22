@@ -38,6 +38,9 @@
 		0DBEA62125B9CC8E0047B5E0 /* BookViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA62025B9CC8E0047B5E0 /* BookViewModelTests.swift */; };
 		0DBEA62925B9CF650047B5E0 /* PricingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA62825B9CF650047B5E0 /* PricingLabel.swift */; };
 		0DBEA62E25B9CF790047B5E0 /* PricingValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA62D25B9CF790047B5E0 /* PricingValue.swift */; };
+		0DBEA63325B9DA5F0047B5E0 /* SystemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA63225B9DA5F0047B5E0 /* SystemIcon.swift */; };
+		0DBEA63825BAD5A60047B5E0 /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA63725BAD5A60047B5E0 /* DetailLabel.swift */; };
+		0DBEA63D25BAD61A0047B5E0 /* Offers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEA63C25BAD61A0047B5E0 /* Offers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		0DBEA62025B9CC8E0047B5E0 /* BookViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModelTests.swift; sourceTree = "<group>"; };
 		0DBEA62825B9CF650047B5E0 /* PricingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingLabel.swift; sourceTree = "<group>"; };
 		0DBEA62D25B9CF790047B5E0 /* PricingValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingValue.swift; sourceTree = "<group>"; };
+		0DBEA63225B9DA5F0047B5E0 /* SystemIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemIcon.swift; sourceTree = "<group>"; };
+		0DBEA63725BAD5A60047B5E0 /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
+		0DBEA63C25BAD61A0047B5E0 /* Offers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +212,7 @@
 			children = (
 				0D7DF91325B4DEB70080872C /* Book.swift */,
 				0DBEA5E225B6114A0047B5E0 /* Offer.swift */,
+				0DBEA63C25BAD61A0047B5E0 /* Offers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,9 +226,11 @@
 				0D7DF93A25B4F3F30080872C /* PriceLabel.swift */,
 				0D7DF93F25B4F4970080872C /* Divider.swift */,
 				0DBEA5D825B58ED20047B5E0 /* BookDetailsView.swift */,
+				0DBEA63725BAD5A60047B5E0 /* DetailLabel.swift */,
 				0DBEA5DD25B58FA80047B5E0 /* PriceView.swift */,
 				0DBEA62825B9CF650047B5E0 /* PricingLabel.swift */,
 				0DBEA62D25B9CF790047B5E0 /* PricingValue.swift */,
+				0DBEA63225B9DA5F0047B5E0 /* SystemIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -380,10 +389,13 @@
 				0D7DF93625B4F01B0080872C /* TitleLabel.swift in Sources */,
 				0DBEA5DE25B58FA80047B5E0 /* PriceView.swift in Sources */,
 				0DBEA60525B761AD0047B5E0 /* BookViewModel.swift in Sources */,
+				0DBEA63D25BAD61A0047B5E0 /* Offers.swift in Sources */,
 				0DBEA62E25B9CF790047B5E0 /* PricingValue.swift in Sources */,
 				0D7DF93B25B4F3F30080872C /* PriceLabel.swift in Sources */,
 				0DBEA5E325B6114A0047B5E0 /* Offer.swift in Sources */,
 				0DBEA5F925B75E210047B5E0 /* LibraryViewModel.swift in Sources */,
+				0DBEA63325B9DA5F0047B5E0 /* SystemIcon.swift in Sources */,
+				0DBEA63825BAD5A60047B5E0 /* DetailLabel.swift in Sources */,
 				0D7DF8F325B4C6CE0080872C /* MainTabBarController.swift in Sources */,
 				0D7DF91D25B4DEDE0080872C /* BookCell.swift in Sources */,
 				0DBEA5F425B75A1E0047B5E0 /* Box.swift in Sources */,

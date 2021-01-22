@@ -11,11 +11,11 @@ class BookViewController: UIViewController {
 
     // MARK: Properties
 
-    let viewModel: BookViewModel
+    private let viewModel: BookViewModel
 
     // MARK: View elements
 
-    let dismissBtn: UIButton = {
+    private let dismissBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.setImage(UIImage(systemName: "chevron.down"), for: .normal)
         btn.tintColor = .white
@@ -23,8 +23,8 @@ class BookViewController: UIViewController {
         return btn
     }()
 
-    lazy var blurredImage: UIImageView = {
-        let iv = UIImageView(image: Network.cacheImages[viewModel.book.cover])
+    private lazy var blurredImage: UIImageView = {
+        let iv = UIImageView(image: viewModel.coverImage())
         iv.contentMode = .scaleAspectFill
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         iv.addSubview(blurView)
@@ -33,36 +33,36 @@ class BookViewController: UIViewController {
         return iv
     }()
 
-    lazy var cover = UIImageView(image: Network.cacheImages[viewModel.book.cover])
-    lazy var titleLabel = TitleLabel(viewModel.book.title)
-    lazy var synopsis: UITextView = {
+    private lazy var cover = UIImageView(image: viewModel.coverImage())
+    private lazy var titleLabel = TitleLabel(viewModel.bookTitle())
+    private lazy var synopsis: UITextView = {
         let tv = UITextView()
-        tv.text = viewModel.book.synopsis.first
+        tv.text = viewModel.bookSynopsis()
         tv.font = .systemFont(ofSize: 16)
         tv.showsVerticalScrollIndicator = false
-        tv.backgroundColor = UIColor(named: "backgroundColor")
+        tv.backgroundColor = UIColor.backgroundColor
         return tv
     }()
 
-    let divider = Divider()
+    private let divider = Divider()
 
-    let bottomView: UIView = {
+    private let bottomView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         return view
     }()
 
-    lazy var priceLabel = PriceLabel("\(viewModel.book.price)€")
-    let minusButton = ValueButton("-", target: self, action: #selector(didHitButton(button:)))
-    let valueLabel: UILabel = {
+    private lazy var priceLabel = PriceLabel(viewModel.bookPrice())
+    private let minusButton = ValueButton("-", target: self, action: #selector(didHitButton(button:)))
+    private let valueLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
-        label.textColor = UIColor(named: "textColor")
+        label.textColor = UIColor.textColor
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
-    let addButton = ValueButton("+", target: self, action: #selector(didHitButton(button:)))
+    private let addButton = ValueButton("+", target: self, action: #selector(didHitButton(button:)))
 
     // MARK: Lifecycle
 
@@ -84,7 +84,7 @@ class BookViewController: UIViewController {
     // MARK: Custom funcs
     
     private func setupViews() {
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = UIColor.backgroundColor
         view.addSubviews(blurredImage, dismissBtn, cover, titleLabel, synopsis, divider, bottomView, priceLabel, minusButton, valueLabel, addButton)
         blurredImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 300)
         dismissBtn.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: .mediumSpace, paddingLeft: .mediumSpace, paddingBottom: 0, paddingRight: 0, width: .extraLargeSpace, height: .extraLargeSpace)

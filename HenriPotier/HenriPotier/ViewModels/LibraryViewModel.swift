@@ -11,18 +11,22 @@ class LibraryViewModel {
 
     // MARK: Properties
 
-    let cellId = "cellId"
-    var books: Box<[Book]> = Box([])
+    private let cellId = "cellId"
+    internal var books: Box<[Book]> = Box([])
 
     // MARK: Custom funcs
 
-    internal func fetchBooks() {
+    internal func fetchBooks(failure: @escaping () -> Void) {
         Network.fetchBooks { (books) in
             self.books.value = books
             Network.prepareLocalData(with: books)
         } failure: {
-            print("bad")
+            failure()
         }
+    }
+
+    internal func setupCells(for collectionView: UICollectionView) {
+        collectionView.register(BookCell.self, forCellWithReuseIdentifier: cellId)
     }
 
     // MARK: Collection view

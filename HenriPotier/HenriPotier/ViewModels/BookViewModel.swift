@@ -5,14 +5,14 @@
 //  Created by Aurélien Haie on 19/01/2021.
 //
 
-import Foundation
+import UIKit
 
 class BookViewModel {
 
     // MARK: Properties
 
-    let book: Book
-    var numberOfBooksInCart: Box<Int> = Box(0)
+    private let book: Book
+    internal var numberOfBooksInCart: Box<Int> = Box(0)
 
     // MARK: Lifecycle
 
@@ -22,6 +22,22 @@ class BookViewModel {
     }
 
     // MARK: Custom funcs
+
+    internal func coverImage() -> UIImage? {
+        return Network.cacheImages[book.cover]
+    }
+
+    internal func bookTitle() -> String {
+        return book.title
+    }
+
+    internal func bookSynopsis() -> String? {
+        return book.synopsis.first
+    }
+
+    internal func bookPrice() -> String {
+        return "\(book.price)€"
+    }
 
     internal func syncQuantityWithLocalData() {
         numberOfBooksInCart.value = Network.getNumberOfItemsInCart(for: book)

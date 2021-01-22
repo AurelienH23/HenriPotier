@@ -12,6 +12,24 @@ class BookViewModelTests: XCTestCase {
 
     var viewModel = BookViewModel(for: Book(isbn: "id", title: "Book title", price: 35, cover: "", synopsis: ["synopsis"], quantity: nil))
 
+    func testCoverImage() throws {
+        let image = UIImage(named: "")
+        Network.cacheImages["id"] = image
+        XCTAssertEqual(image, viewModel.coverImage())
+    }
+
+    func testBookTitle() throws {
+        XCTAssertEqual("Book title", viewModel.bookTitle())
+    }
+
+    func testBookSynopsis() throws {
+        XCTAssertEqual("synopsis", viewModel.bookSynopsis())
+    }
+
+    func testBookPrice() throws {
+        XCTAssertEqual("35€", viewModel.bookPrice())
+    }
+
     func testSyncingQuantity() throws {
         viewModel.syncQuantityWithLocalData()
         XCTAssertEqual(0, viewModel.numberOfBooksInCart.value)

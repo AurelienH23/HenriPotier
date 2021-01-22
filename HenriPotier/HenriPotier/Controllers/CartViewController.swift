@@ -11,7 +11,7 @@ class CartViewController: UIViewController {
 
     // MARK: Properties
 
-    var books = [Book]() {
+    private var books = [Book]() {
         didSet {
             showAddedBooks()
             if books.reduce(0, {$0 + $1.quantity!}) > 0 {
@@ -25,29 +25,18 @@ class CartViewController: UIViewController {
 
     // MARK: View elements
 
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.showsVerticalScrollIndicator = false
         sv.showsHorizontalScrollIndicator = false
         return sv
     }()
 
-    let bookImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(systemName: "book.closed"))
-        iv.tintColor = UIColor(named: "textColor")
-        return iv
-    }()
-    let arrowImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(systemName: "arrow.right"))
-        iv.tintColor = .hpGreen
-        return iv
-    }()
-    let cartImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(systemName: "cart"))
-        iv.tintColor = UIColor(named: "textColor")
-        return iv
-    }()
-    let emptyLabel: UILabel = {
+    private let bookImage = SystemIcon(named: "book.closed", color: UIColor.textColor ?? .black)
+    private let arrowImage = SystemIcon(named: "arrow.right", color: .hpGreen)
+    private let cartImage = SystemIcon(named: "cart", color: UIColor.textColor ?? .black)
+
+    private let emptyLabel: UILabel = {
         let label = UILabel()
         let attributedText = NSMutableAttributedString(attributedString: NSAttributedString(string: "Votre panier est vide !\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 20)]))
         attributedText.append(NSAttributedString(string: "Ajoutez des livres en parcourant la librairie", attributes: [.font: UIFont.systemFont(ofSize: 20)]))
@@ -57,14 +46,14 @@ class CartViewController: UIViewController {
         return label
     }()
 
-    let ticketView: UIView = {
+    private let ticketView: UIView = {
         let view = UIView()
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor(named: "lightGrayTheme")!.cgColor
+        view.layer.borderColor = UIColor.lightGrayTheme.cgColor
         return view
     }()
 
-    let ticketLabel: UILabel = {
+    private let ticketLabel: UILabel = {
         let label = UILabel()
         label.text = "Ticket de caisse"
         label.font = .boldSystemFont(ofSize: 20)
@@ -72,7 +61,7 @@ class CartViewController: UIViewController {
         return label
     }()
 
-    let companyName: UILabel = {
+    private let companyName: UILabel = {
         let label = UILabel()
         label.text = "Henri Potier Inc."
         label.textColor = .hpGray
@@ -81,24 +70,24 @@ class CartViewController: UIViewController {
         return label
     }()
 
-    let logo = UIImageView(image: UIImage(named: "logo"))
+    private let logo = UIImageView(image: UIImage(named: "logo"))
 
-    let hDivider = Divider()
-    let vDivider = Divider()
+    private let hDivider = Divider()
+    private let vDivider = Divider()
 
-    lazy var bookDetails1 = BookDetailsView(for: books[0])
-    lazy var bookDetails2 = BookDetailsView(for: books[1])
-    lazy var bookDetails3 = BookDetailsView(for: books[2])
-    lazy var bookDetails4 = BookDetailsView(for: books[3])
-    lazy var bookDetails5 = BookDetailsView(for: books[4])
-    lazy var bookDetails6 = BookDetailsView(for: books[5])
-    lazy var bookDetails7 = BookDetailsView(for: books[6])
+    private lazy var bookDetails1 = BookDetailsView(for: books[0])
+    private lazy var bookDetails2 = BookDetailsView(for: books[1])
+    private lazy var bookDetails3 = BookDetailsView(for: books[2])
+    private lazy var bookDetails4 = BookDetailsView(for: books[3])
+    private lazy var bookDetails5 = BookDetailsView(for: books[4])
+    private lazy var bookDetails6 = BookDetailsView(for: books[5])
+    private lazy var bookDetails7 = BookDetailsView(for: books[6])
 
-    let priceView = PriceView()
+    private let priceView = PriceView()
 
-    let payButton: UIButton = {
+    private let payButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Règler", for: .normal)
+        btn.setTitle("Régler", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.backgroundColor = .hpGreen
         btn.layer.cornerRadius = .standardTouchSpace / 2

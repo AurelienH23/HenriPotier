@@ -25,7 +25,7 @@ class LibraryViewModelTests: XCTestCase {
 
     func testCells() throws {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-        collectionView.register(BookCell.self, forCellWithReuseIdentifier: "cellId")
+        viewModel.setupCells(for: collectionView)
         XCTAssertNotNil(viewModel.cellForItem(at: IndexPath(item: 0, section: 0), from: collectionView))
         XCTAssertNotNil(viewModel.cellForItem(at: IndexPath(item: 1, section: 0), from: collectionView))
         XCTAssertNotNil(viewModel.cellForItem(at: IndexPath(item: 2, section: 0), from: collectionView))

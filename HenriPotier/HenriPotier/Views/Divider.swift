@@ -11,9 +11,9 @@ class Divider: UIView {
 
     // MARK: Lifecycle
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor(named: "lightGrayTheme")
+    init(color: UIColor = .lightGrayTheme) {
+        super.init(frame: .zero)
+        backgroundColor = color
     }
 
     required init?(coder: NSCoder) {

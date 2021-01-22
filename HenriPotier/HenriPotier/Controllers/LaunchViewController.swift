@@ -11,7 +11,7 @@ class LaunchViewController: UIViewController {
 
     // MARK: View elements
 
-    let logo = UIImageView(image: UIImage(named: "logo"))
+    private let logo = UIImageView(image: UIImage(named: "logo"))
 
     // MARK: Lifecycle
 

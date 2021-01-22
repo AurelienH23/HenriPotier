@@ -11,25 +11,17 @@ class PriceView: UIView {
 
     // MARK: View elements
 
-    let costLabel = PricingLabel("Coût total de la commande :")
-    let dots1 = PricingLabel("....................................")
-    let costValue = PricingValue("-€")
-    let offerLabel = PricingLabel("Offre commerciale :")
-    let dots2 = PricingLabel("....................................")
-    let offerValue = PricingValue("-€")
-    let divider: UIView = {
-        let view = UIView()
-        view.backgroundColor = .hpGreen
-        return view
-    }()
-    let wand: UIImageView = {
-        let iv = UIImageView(image: UIImage(systemName: "wand.and.stars"))
-        iv.tintColor = .hpGreen
-        return iv
-    }()
-    let totalLabel = PricingLabel("Total à payer :")
-    let dots3 = PricingLabel("....................................")
-    let totalValue = PricingValue("-€")
+    private let costLabel = PricingLabel("Coût total de la commande :")
+    private let dots1 = PricingLabel("....................................")
+    private let costValue = PricingValue("-€")
+    private let offerLabel = PricingLabel("Offre commerciale :")
+    private let dots2 = PricingLabel("....................................")
+    private let offerValue = PricingValue("-€")
+    private let divider = Divider(color: .hpGreen)
+    private let wand = SystemIcon(named: "wand.and.stars", color: .hpGreen)
+    private let totalLabel = PricingLabel("Total à payer :")
+    private let dots3 = PricingLabel("....................................")
+    private let totalValue = PricingValue("-€")
 
     // MARK: Lifecycle
 
